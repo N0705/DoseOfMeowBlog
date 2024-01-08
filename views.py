@@ -8,6 +8,13 @@ views = Blueprint("views", __name__)
 
 
 @views.route("/")
+def Aboutme():
+    return render_template("aboutme.html")
+
+
+#insta page, shop, navbar 
+
+
 @views.route("/home")
 def home():
     posts = Post.query.all()
