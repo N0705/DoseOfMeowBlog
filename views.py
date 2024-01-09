@@ -6,14 +6,13 @@ from init import db
 views = Blueprint("views", __name__)
 
 
-
-@views.route("/")
-def Aboutme():
-    return render_template("aboutme.html")
-
-
 #insta page, shop, navbar 
 
+
+
+@views.route("/")
+def aboutme():
+    return render_template("aboutme.html") 
 
 @views.route("/home")
 def home():
