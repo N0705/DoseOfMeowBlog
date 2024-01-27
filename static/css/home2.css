@@ -1,0 +1,10 @@
+body {
+    animation: animateBg 20s linear infinite;
+    background-image: linear-gradient(45deg, #E8A4B2, white);
+    background-size: 100% 400%;
+}
+
+@keyframes animateBg {
+    0% { background-position: 0% 0%; } 
+    100% { background-position: 0% 100%; } 
+}
