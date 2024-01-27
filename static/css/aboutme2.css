@@ -1,0 +1,126 @@
+
+
+body {
+    background-image: linear-gradient(to bottom, #E8A4B2, #E8A4B2, #E8A4B2, #e8a4b2, white, white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header3 {
+   font-size: 15px;
+   font-style: inherit;
+   font-family:Arial, Helvetica, sans-serif
+}
+.head {
+    border-style: ridge;
+    border-width: 0px;
+    border-color: white;
+    border-radius: 50%;  /* Circular border */
+
+    /* Increase both width and height equally */
+    width: 700px;  /* Example size, adjust as needed */
+    height: 300px;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.fa-instagram {
+    color: black;
+    font-size: 100px; /* Adjust this as necessary */
+    float: right; /* Keep it floated to the right */
+    margin: 20px 20px 0 0; /* Add some margin */
+}
+
+.Intro {
+    clear: both; /* Clear any floats */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding for spacing */
+    margin: 0 auto 20px; /* Centered horizontally, with margin at the bottom */
+    width: 80%; /* Adjust width as necessary to avoid overlapping with the Instagram logo */
+}
+
+.image-row {
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    clear: both; /* Ensure this section does not overlap with elements above */
+}
+
+
+
+
+
+
+.left-aligned-image, .right-aligned-image, .middle-aligned-image {
+    border-style: ridge;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 200px;
+    position: absolute; /* Position images absolutely within the .image-row */
+    bottom: 10px; /* Adjust this value as needed to position from the bottom */
+}
+
+.left-aligned-image {
+    left: 10px; /* Align to the left */
+}
+
+.middle-aligned-image {
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the image */
+}
+
+.right-aligned-image {
+    right: 10px; }
+
+
+
+    @media screen and (max-width: 768px) {
+        .head {
+            width: 60%; /* Adjusted for better scaling */
+            height: auto;
+        }
+    
+        .fa-instagram {
+            font-size: 6vw; /* Adjusted font size */
+        }
+    
+        .Intro, .image-row {
+            width: 90%;
+            margin: 20px auto; /* Added margin for spacing */
+        }
+    
+        .left-aligned-image, .middle-aligned-image, .right-aligned-image {
+            width: 30vw; /* Adjusted width */
+            height: auto;
+            bottom: 20px; /* Adjusted bottom position */
+            left: auto; /* Reset left alignment */
+        }
+    
+        .middle-aligned-image {
+            transform: translateX(-50%);
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .head {
+            width: 80%; /* Increased width for smaller screens */
+        }
+    
+        .fa-instagram {
+            font-size: 10vw; /* Increased font size for smaller screens */
+        }
+    
+        .Intro, .image-row {
+            width: 95%;
+            margin: 20px auto;
+        }
+    
+        .left-aligned-image, .middle-aligned-image, .right-aligned-image {
+            width: 40vw; /* Increased width for better visibility */
+            position: static; /* Reset position */
+            margin: 10px auto; /* Added margin for spacing */
+        }
+    }

@@ -1,12 +1,45 @@
-{% extends "base.html" %} {% block title %} aboutme {% endblock %} 
+{% extends "base.html" %} 
+{% block title %} aboutme {% endblock %} 
 
-{% block content%}
+{% block content %}
 
-<h1 align="center"> About me </h1>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aboutme2.css') }}">
 
-<h2 align="center">My Face</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<img src="{{ url_for('static', filename='images/DJKhaled.jpg') }}" alt="Face">
 
+<h2 align="center">Welcome to DoseOfMeow!</h2>
+<h3 id= "header3" align="center">Go check our products below!</h3>
+<a target="_blank" href="https://www.instagram.com/daily_dose_of_meows?igsh=MXVzaWg1Y2ZuazB6dw%3D%3D&utm_source=qr" class="fa fa-instagram fa-4x"></a>
+<div class="image-row">
+    
+   <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="left-aligned-image" src="{{ url_for('static', filename='images/pinkcat.png') }}" alt="Pink Cat" width="200" height="200"> </a>
+    <img class = "head" src="{{ url_for('static', filename='images/doseofmeowV.png') }}" alt="Dose of Meow" width="450" height="225">
+    <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="right-aligned-image" src="{{ url_for('static', filename='images/whitecat.png') }}" alt="White Cat" width="200" height="200"> </a>
+    <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="middle-aligned-image" src="{{ url_for('static', filename='images/bluecat.png') }}" alt="White Cat" width="200" height="200"> </a>
+</div>
+
+<p class="Intro" align="center">
+    Welcome to the DoseOfMeow community for cat lovers!
+    
+    If you’re passionate about your feline friend and love sharing their adorable antics, you’ve found your new favorite corner on the internet! This blog is all about celebrating our whiskered companions and showcasing the beauty and quirky charm of cats from all around the world.
+    
+    But that's not all - your furry friend could become a star! 🌟 Each week, we feature the most captivating, cute, or comical cat photo on our popular Instagram page. It's a fantastic opportunity to share your cat's unique personality with a wider audience and to connect with other cat enthusiasts.
+    
+    Here’s how it works:
+    
+    Post Your Purrfect Picture: Share your best cat photo on our blog. Whether it's a majestic pose, a hilarious face, or a moment of adorable mischief - if it makes you smile, we want to see it!
+    Tell Us Their Tale: Every cat has a story. Share a bit about your cat - their name, quirks, what makes them special to you. It's these stories that turn a beautiful picture into a heartwarming narrative.
+    Join the Community: Engage with other cat lovers. Comment on posts, share tips, and revel in the joy that these little furballs bring into our lives.
+    Each submission is a chance to be featured on our Instagram, where thousands of fellow cat aficionados can appreciate the beauty and uniqueness of your feline friend.
+    
+    So, grab your camera, capture your cat’s finest moment, and get ready to share it with the world. We can’t wait to meet all your adorable kitties and share in the joy they bring. Welcome to our community - let’s make every cat a superstar! 🐱✨
+    
+    
+    
+    
+    
+    
+     </p>
 
 {% endblock %}
