@@ -36,7 +36,7 @@ def create_post():
 
     return render_template('createpost.html',user=current_user)
 
-@views.route("/delete-post/<id>")
+@views.route("/delete-post/<id>") 
 @login_required
 def delete_post(id):
     post = Post.query.filter_by(id=id).first()
@@ -49,6 +49,7 @@ def delete_post(id):
         db.session.delete(post)
         db.session.commit()
         flash('Post deleted',category='success')
+        
     return redirect(url_for('views.home'))
     
 @views.route("/posts/<username>")
@@ -59,6 +60,6 @@ def posts(username):
     if not user:
         flash('No user with that username exists.',category='error')
         return redirect(url_for('views.home'))
-    post = Post.query.filter_by(author=user.id).all()
-
+    
+    posts = Post.query.filter_by(author=user.id).all()
     return render_template("posts.html",user=current_user,posts=posts, username=username)
