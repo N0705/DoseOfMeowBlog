@@ -3,10 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from passwords import *
+from flask_mail import Mail
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
+mail = Mail()
 def create_app(): 
     app = Flask(__name__)
     app.config["SECRET_KEY"] = Secret_Key_Pass 
@@ -26,12 +27,19 @@ def create_app():
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
     login_manager.init_app(app)
-
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
 
-    
+    # NOTE THIS IS FOR THE FLASK email authentication:
+    app.config["MAIL_SERVER"] = 'smtp.gmail.com'
+    app.config["MAIL_PORT"] = 465
+    app.config["MAIL_USE_TLS"] = False
+    app.config["MAIL_USE_SSL"] = True
+    app.config["MAIL_USERNAME"] = emailName
+    app.config["MAIL_PASSWORD"] = emailPassword
+    app.config["MAIL_DEFAULT_SENDER"] = 'your_email@example.com'
+    mail.init_app(app)
     
     return app 
 
@@ -48,5 +56,3 @@ def create_database(app):
         with app.app_context():
             db.create_all()
         print("Created Database!")
-
-

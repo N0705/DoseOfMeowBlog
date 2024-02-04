@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from models import Post
 from init import db
 from models import User
-
+from auth import is_user_verified
 views = Blueprint("views", __name__)
 
 
@@ -21,6 +21,7 @@ def home():
 
 @views.route("/create-post", methods = ['GET', 'POST'])
 @login_required
+@is_user_verified  # Apply the verification check
 def create_post():
     if request.method == "POST":
         text = request.form.get('text')
