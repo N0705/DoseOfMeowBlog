@@ -36,6 +36,7 @@ class Comment(db.Model):
 
 class Like(db.Model):
     id = db.Column(db.Integer,primary_key=True)
+    
     author = db.Column(db.Integer,db.ForeignKey('user.id',ondelete="CASCADE"),nullable=False)
     post_id = db.Column(db.Integer,db.ForeignKey('post.id',ondelete="CASCADE"),nullable=False) 
     
