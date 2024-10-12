@@ -1,24 +1,26 @@
-{% extends "base.html" %} {% block title %} Home {% endblock %} 
+{% extends "base.html" %} 
 
-{% block content%}
-<h1 align="center"> Make a Post</h1>
+{% block title %} Home {% endblock %} 
 
-<form method="POST"> 
-<textarea name="text" id="text" class="form-control"> </textarea>
-<br />
-<div align="center"> <button type="submit" class = "btn btn-lg btn-primary">Post</button>
-
-</div>
+{% block content %}
+<h1 align="center">Make a Post</h1>
 
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posts_div.css') }}">
+
+<form method="POST" enctype="multipart/form-data"> 
+    <textarea name="text" id="text" class="form-control"></textarea>
+    <br />
+    <div align="center">
+        <input type="file" name="image" id="image" accept="image/*">
+        <br /><br />
+        <button type="submit" class="btn btn-lg btn-primary">Post</button>
+    </div>
 </form>
+
 <br />
-<div align = "center">
- <a href="/home"> <button type="button" class="btn btn-lg btn-secondary">Back</button></a>
-
+<div align="center">
+    <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
 </div>
-
-
-
 
 {% endblock %}

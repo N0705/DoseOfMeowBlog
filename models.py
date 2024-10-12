@@ -25,6 +25,15 @@ class Post(db.Model):
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete = 'CASCADE'), nullable = False)
     comments = db.relationship('Comment',backref='post', passive_deletes=True)
     likes = db.relationship('Like',backref='post', passive_deletes=True)
+    images = db.relationship('Image',backref='post',lazy=True) 
+
+class Image(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.String)
+    post_id = db.Column(db.Integer,db.ForeignKey('post.id',ondelete="CASCADE"),nullable=False)
+ 
+
+    
 
 class Comment(db.Model):
     id = db.Column(db.Integer,primary_key=True)
@@ -39,7 +48,9 @@ class Like(db.Model):
     
     author = db.Column(db.Integer,db.ForeignKey('user.id',ondelete="CASCADE"),nullable=False)
     post_id = db.Column(db.Integer,db.ForeignKey('post.id',ondelete="CASCADE"),nullable=False) 
-    
+
+
+
 
 
 

@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+{% block title %} aboutme {% endblock %} 
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Products.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<h3 id="title" align="center">DoseOfMeow Cat Humidifiers!!</h3>
+
+<p id="description">Discover our charming collection of cat-themed humidifiers that bring a touch of feline magic to your home! Our humidifiers not only add a whimsical touch to your decor but also help maintain a comfortable and healthy environment. Available in three adorable colors—Pink, Blue, and White—each design is crafted to brighten your space and keep the air fresh. Perfect for cat lovers looking to combine function and style, these humidifiers make a delightful addition to any room. Click on the images below to explore more about each design and make one yours today!</p>
+
+
+<div class="image-row">
+    <div class="image-container left-aligned-image">
+        <span class="image-text">Pink</span>
+        <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">
+            <img src="{{ url_for('static', filename='images/pinkcat.png') }}" alt="Pink Cat" width="200" height="200">
+        </a>
+    </div>
+    
+    <div class="image-container middle-aligned-image">
+        <span class="image-text">Blue</span>
+        <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">
+            <img src="{{ url_for('static', filename='images/bluecat.png') }}" alt="Blue Cat" width="200" height="200">
+        </a>
+    </div>
+    
+    <div class="image-container right-aligned-image">
+        <span class="image-text">White</span>
+        <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">
+            <img src="{{ url_for('static', filename='images/whitecat.png') }}" alt="White Cat" width="200" height="200">
+        </a>
+    </div>
+</div>
+
+{% endblock %}

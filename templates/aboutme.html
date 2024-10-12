@@ -1,45 +1,66 @@
 {% extends "base.html" %} 
-{% block title %} aboutme {% endblock %} 
+{% block title %} About Me {% endblock %}
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aboutme2.css') }}">
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aboutme2.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<div class="aboutme-container">
+    <!-- Header Section -->
+    <section class="about-header">
+        <h2 class="text-center">Welcome to <span class="highlight">DoseOfMeow</span>!</h2>
+        <h3 class="subheading text-center">A Purr-fect Place for Cat Lovers</h3>
+    </section>
 
-<h2 align="center">Welcome to DoseOfMeow!</h2>
-<h3 id= "header3" align="center">Go check our products below!</h3>
-<a target="_blank" href="https://www.instagram.com/daily_dose_of_meows?igsh=MXVzaWg1Y2ZuazB6dw%3D%3D&utm_source=qr" class="fa fa-instagram fa-4x"></a>
-<div class="image-row">
-    
-   <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="left-aligned-image" src="{{ url_for('static', filename='images/pinkcat.png') }}" alt="Pink Cat" width="200" height="200"> </a>
-    <img class = "head" src="{{ url_for('static', filename='images/doseofmeowV.png') }}" alt="Dose of Meow" width="450" height="225">
-    <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="right-aligned-image" src="{{ url_for('static', filename='images/whitecat.png') }}" alt="White Cat" width="200" height="200"> </a>
-    <a target="_blank" href="https://wearplex.etsy.com/listing/1597773592">  <img class="middle-aligned-image" src="{{ url_for('static', filename='images/bluecat.png') }}" alt="White Cat" width="200" height="200"> </a>
+    <!-- Call to Action Section -->
+    <section class="cta-section text-center">
+        <p>Check out our amazing products and join the fun on Instagram!</p>
+        <a target="_blank" href="https://www.instagram.com/daily_dose_of_meows?igsh=MXVzaWg1Y2ZuazB6dw%3D%3D&utm_source=qr" class="fa fa-instagram fa-4x"></a>
+    </section>
+
+    <!-- Image Section -->
+    <section class="image-row text-center">
+        <img class="main-image" src="{{ url_for('static', filename='images/doseofmeowV.png') }}" alt="Dose of Meow" width="450" height="225">
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro text-center">
+        <h4>About DoseOfMeow</h4>
+        <p>
+            Welcome to DoseOfMeow, the ultimate online community for cat lovers everywhere! Here, we celebrate the quirks, beauty, and joy that our feline friends bring into our lives.
+        </p>
+        <p>
+            If you’re a passionate cat parent or just love all things kitty, this is the place for you. Share your cat’s best moments, learn from fellow cat owners, and be a part of our purr-esome community!
+        </p>
+    </section>
+
+    <!-- Feature Your Cat Section -->
+    <section class="feature-your-cat text-center">
+        <h4>Feature Your Cat</h4>
+        <p>
+            Have a photogenic kitty? Want to show off their funniest or cutest moments? Here’s your chance! Each week, we feature one lucky cat on our Instagram page, and it could be yours! 
+        </p>
+        <p>Here's how you can participate:</p>
+        <ul class="participation-steps">
+            <li><strong>1. Share Your Best Cat Photo:</strong> Majestic, goofy, or heart-melting — all photos welcome!</li>
+            <li><strong>2. Tell Their Story:</strong> Introduce your cat, share their quirks, and what makes them one-of-a-kind.</li>
+            <li><strong>3. Engage with the Community:</strong> Comment, connect, and exchange tips with fellow cat enthusiasts.</li>
+        </ul>
+        <p>Each submission is a chance to be featured and appreciated by thousands of cat lovers around the world!</p>
+    </section>
+
+    <!-- Call to Action: Share Your Cat -->
+    <section class="share-your-cat text-center">
+        <h4>Ready to Make Your Cat a Star? 🌟</h4>
+        <p>
+            Grab your camera, capture your cat’s finest moment, and share it with the world. We can’t wait to meet your adorable feline friends! 🐱✨
+        </p>
+    </section>
+
+    <script src="{{ url_for('static', filename='javascript/aboutme.js') }}"></script>
+
 </div>
-
-<p class="Intro" align="center">
-    Welcome to the DoseOfMeow community for cat lovers!
-    
-    If you’re passionate about your feline friend and love sharing their adorable antics, you’ve found your new favorite corner on the internet! This blog is all about celebrating our whiskered companions and showcasing the beauty and quirky charm of cats from all around the world.
-    
-    But that's not all - your furry friend could become a star! 🌟 Each week, we feature the most captivating, cute, or comical cat photo on our popular Instagram page. It's a fantastic opportunity to share your cat's unique personality with a wider audience and to connect with other cat enthusiasts.
-    
-    Here’s how it works:
-    
-    Post Your Purrfect Picture: Share your best cat photo on our blog. Whether it's a majestic pose, a hilarious face, or a moment of adorable mischief - if it makes you smile, we want to see it!
-    Tell Us Their Tale: Every cat has a story. Share a bit about your cat - their name, quirks, what makes them special to you. It's these stories that turn a beautiful picture into a heartwarming narrative.
-    Join the Community: Engage with other cat lovers. Comment on posts, share tips, and revel in the joy that these little furballs bring into our lives.
-    Each submission is a chance to be featured on our Instagram, where thousands of fellow cat aficionados can appreciate the beauty and uniqueness of your feline friend.
-    
-    So, grab your camera, capture your cat’s finest moment, and get ready to share it with the world. We can’t wait to meet all your adorable kitties and share in the joy they bring. Welcome to our community - let’s make every cat a superstar! 🐱✨
-    
-    
-    
-    
-    
-    
-     </p>
 
 {% endblock %}

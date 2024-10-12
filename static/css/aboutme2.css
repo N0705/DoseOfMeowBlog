@@ -1,126 +1,174 @@
 
 
+/* General Styling */
 body {
-    background-image: linear-gradient(to bottom, #E8A4B2, #E8A4B2, #E8A4B2, #e8a4b2, white, white);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #E8A4B2; /* Solid background color */
     font-style: italic;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Header Section */
+h2 {
+    font-size: 36px;
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+h3.subheading {
+    font-size: 24px;
+    color: #777;
+    font-style: italic;
 }
 
 #header3 {
-   font-size: 15px;
-   font-style: inherit;
-   font-family:Arial, Helvetica, sans-serif
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.head {
-    border-style: ridge;
-    border-width: 0px;
-    border-color: white;
-    border-radius: 50%;  /* Circular border */
 
-    /* Increase both width and height equally */
-    width: 700px;  /* Example size, adjust as needed */
-    height: 300px;
+/* Instagram Icon */
+.fa-instagram {
+    color: #E1306C;
+    font-size: 80px; /* Reduced size for a balanced look */
+    float: none; /* Center the icon */
+    margin: 20px auto;
+    display: block;
+    transition: transform 0.3s; /* Add a smooth hover effect */
+}
 
+.fa-instagram:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Updated Image Styling */
+.head, .left-aligned-image, .middle-aligned-image, .right-aligned-image {
+    border-radius: 50%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for subtle border effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    width: 700px; /* Example size for the .head, adjust as needed */
+    height: 300px; /* Adjust size as needed */
     display: block;
     margin: 0 auto;
 }
 
-.fa-instagram {
-    color: black;
-    font-size: 100px; /* Adjust this as necessary */
-    float: right; /* Keep it floated to the right */
-    margin: 20px 20px 0 0; /* Add some margin */
+.left-aligned-image, .middle-aligned-image, .right-aligned-image {
+    width: 250px; /* Adjusted width */
+    height: 250px; /* Adjusted height */
 }
 
-.Intro {
-    clear: both; /* Clear any floats */
-    text-align: center; /* Center the text */
-    padding: 20px; /* Add some padding for spacing */
-    margin: 0 auto 20px; /* Centered horizontally, with margin at the bottom */
-    width: 80%; /* Adjust width as necessary to avoid overlapping with the Instagram logo */
+.head:hover, .left-aligned-image:hover, .middle-aligned-image:hover, .right-aligned-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
+/* Text Sections */
+p.Intro {
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    color: #444;
+    line-height: 1.8; /* Increase line height for readability */
+    padding: 20px;
+    margin: 0 auto 40px;
+    width: 80%;
+    background-color: #FFF5F7; /* Light pink background to stand out */
+    border-radius: 12px; /* Rounded corners for the text box */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.intro h4 {
+    color: #E1306C;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Participation Steps */
+.participation-steps {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.participation-steps li {
+    margin-bottom: 10px;
+}
+
+/* Image Row */
 .image-row {
-    position: relative;
-    width: 100%;
-    min-height: 70vh;
-    clear: both; /* Ensure this section does not overlap with elements above */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 30px 0;
 }
 
+.left-aligned-image, .middle-aligned-image, .right-aligned-image {
+    border-radius: 50%;
+    border: 3px solid #FFF;
+    transition: transform 0.3s, border-color 0.3s;
+}
 
-
-
-
-
-.left-aligned-image, .right-aligned-image, .middle-aligned-image {
-    border-style: ridge;
-    border-width: 2px;
-    border-color: white;
-    border-radius: 200px;
-    position: absolute; /* Position images absolutely within the .image-row */
-    bottom: 10px; /* Adjust this value as needed to position from the bottom */
+.left-aligned-image:hover, .middle-aligned-image:hover, .right-aligned-image:hover {
+    transform: scale(1.1);
+    border-color: #E8A4B2;
 }
 
 .left-aligned-image {
-    left: 10px; /* Align to the left */
+    width: 250px;
+    height: 250px;
 }
 
 .middle-aligned-image {
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for the width of the image */
+    width: 300px;
+    height: 300px;
 }
 
 .right-aligned-image {
-    right: 10px; }
+    width: 250px;
+    height: 250px;
+}
 
-
-
-    @media screen and (max-width: 768px) {
-        .head {
-            width: 60%; /* Adjusted for better scaling */
-            height: auto;
-        }
-    
-        .fa-instagram {
-            font-size: 6vw; /* Adjusted font size */
-        }
-    
-        .Intro, .image-row {
-            width: 90%;
-            margin: 20px auto; /* Added margin for spacing */
-        }
-    
-        .left-aligned-image, .middle-aligned-image, .right-aligned-image {
-            width: 30vw; /* Adjusted width */
-            height: auto;
-            bottom: 20px; /* Adjusted bottom position */
-            left: auto; /* Reset left alignment */
-        }
-    
-        .middle-aligned-image {
-            transform: translateX(-50%);
-        }
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .head {
+        width: 70%;
     }
-    
-    @media screen and (max-width: 480px) {
-        .head {
-            width: 80%; /* Increased width for smaller screens */
-        }
-    
-        .fa-instagram {
-            font-size: 10vw; /* Increased font size for smaller screens */
-        }
-    
-        .Intro, .image-row {
-            width: 95%;
-            margin: 20px auto;
-        }
-    
-        .left-aligned-image, .middle-aligned-image, .right-aligned-image {
-            width: 40vw; /* Increased width for better visibility */
-            position: static; /* Reset position */
-            margin: 10px auto; /* Added margin for spacing */
-        }
+
+    .fa-instagram {
+        font-size: 6vw;
     }
+
+    .Intro, .image-row {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .left-aligned-image, .middle-aligned-image, .right-aligned-image {
+        width: 40vw;
+        height: 40vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .head {
+        width: 85%;
+    }
+
+    .fa-instagram {
+        font-size: 10vw;
+    }
+
+    .Intro, .image-row {
+        width: 95%;
+    }
+
+    .left-aligned-image, .middle-aligned-image, .right-aligned-image {
+        width: 50vw;
+        height: 50vw;
+    }
+}

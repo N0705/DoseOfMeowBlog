@@ -1,9 +1,11 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app as app
 from flask_login import login_required, current_user
 from models import Post, Comment, Like
 from init import db
 from models import User
 from auth import is_user_verified
+from werkzeug.utils import secure_filename
+import os 
 views = Blueprint("views", __name__)
 
 
@@ -13,11 +15,20 @@ views = Blueprint("views", __name__)
 def aboutme():
     return render_template("aboutme.html", user=current_user) 
 
+@views.route("/Products")
+def Products():
+    return render_template("Products.html",user=current_user)
+
 @views.route("/home")
 def home():
     posts = Post.query.all()
     return render_template("home.html",user=current_user,posts=posts)
 
+ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
+
+def allowed_file(filename):
+    return ',' in filename and \
+    filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @views.route("/create-post", methods = ['GET', 'POST'])
 @login_required
@@ -25,15 +36,23 @@ def home():
 def create_post():
     if request.method == "POST":
         text = request.form.get('text')
+        file = request.files.get('file')
 
-        if not text:
+        if not text and not file:
             flash('Post cannot be empty', category='error')
         else:
             post = Post(text=text, author=current_user.id)
             db.session.add(post)
             db.session.commit()
+
+            if file and allowed_file(file.filename):
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
+
+
             flash('Post created!', category='success')
             return redirect(url_for('views.home'))
+             
+
 
     return render_template('createpost.html',user=current_user)
 
@@ -121,3 +140,17 @@ def like(post_id):
         db.session.commit() 
     
     return redirect(url_for('views.home'))
+
+
+#@views.route("/create-post", methods = ['GET', 'POST'])
+#@login_required
+#@is_user_verified  # Apply the verification check
+#   if request.method == 'POST':
+ #       if 'file' not in request.files:
+  #          flash("file not supported")
+   #         return redirect(request.url)
+    #    file = redirect.files['file']
+     #   if file.filename == '':
+      #      flash("No selected file")
+       #     return redirect(request.url)
+        #### return redirect(url_for('views.home'))
