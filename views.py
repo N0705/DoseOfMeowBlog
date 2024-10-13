@@ -2,12 +2,43 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from flask_login import login_required, current_user
 from models import Post, Comment, Like
 from init import db
+import requests
+import base64
+from password import *
 from models import User
 from auth import is_user_verified
 from werkzeug.utils import secure_filename
 import os 
 views = Blueprint("views", __name__)
 
+
+# image upload
+def upload_image_to_imgbb(image_data, api_key):
+    # Step 2: Convert the image data to a base64 encoded string
+    encoded_image = base64.b64encode(image_data).decode('utf-8')
+
+    # Step 3: Upload the image to ImgBB
+    upload_url = "https://api.imgbb.com/1/upload"
+    payload = {
+        'key': api_key,
+        'image': encoded_image,
+    }
+
+    try:
+        upload_response = requests.post(upload_url, data=payload)
+        upload_response.raise_for_status()
+        result = upload_response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error uploading the image to ImgBB: {e}")
+        return None
+
+    # Step 4: Return the new URL of the uploaded image
+    if result['status'] == 200:
+        #print(result)
+        return result['data']['url']
+    else:
+        print(f"Error: {result['error']['message']}")
+        return None
 
 #insta page, shop, navbar 
 
@@ -30,28 +61,36 @@ def allowed_file(filename):
     return ',' in filename and \
     filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+# for creating a post 
 @views.route("/create-post", methods = ['GET', 'POST'])
 @login_required
 @is_user_verified  # Apply the verification check
 def create_post():
     if request.method == "POST":
         text = request.form.get('text')
-        file = request.files.get('file')
+        imageFile = request.files.get('image')
 
-        if not text and not file:
-            flash('Post cannot be empty', category='error')
-        else:
-            post = Post(text=text, author=current_user.id)
-            db.session.add(post)
-            db.session.commit()
+        imageData = imageFile.read()
 
-            if file and allowed_file(file.filename):
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
+        #print(imageData)
 
+        print("This is the text: ", text)
 
-            flash('Post created!', category='success')
-            return redirect(url_for('views.home'))
-             
+        # Step 1: Upload the image to ImgBB (function)
+        imageLink = upload_image_to_imgbb(imageData, imgDbKey)
+
+        print(imageLink)
+
+        post = Post(text=text, author=current_user.id, images=imageLink)
+        db.session.add(post)
+        db.session.commit()
+
+        # convert back to 
+        
+        #post = Post(text=text, author=current_user.id)
+        #db.session.add(post)
+        #db.session.commit()
 
 
     return render_template('createpost.html',user=current_user)

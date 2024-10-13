@@ -21,16 +21,12 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key= True)
     text = db.Column(db.Text, nullable=False)
+    images = db.Column(db.String(550), nullable=True)
     date_created = db.Column(db.DateTime(timezone= True),default=func.now())
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete = 'CASCADE'), nullable = False)
     comments = db.relationship('Comment',backref='post', passive_deletes=True)
     likes = db.relationship('Like',backref='post', passive_deletes=True)
-    images = db.relationship('Image',backref='post',lazy=True) 
-
-class Image(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String)
-    post_id = db.Column(db.Integer,db.ForeignKey('post.id',ondelete="CASCADE"),nullable=False)
+    
  
 
     

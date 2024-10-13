@@ -35,10 +35,9 @@
         <div class="card-body">
             <div class="card-text">{{ post.text }}</div>
             {% if post.images %}
-                {% for image in post.images %}
                 <br />
-                <img src="{{ image.data }}" alt="Uploaded Image" class="img-fluid">
-                {% endfor %}
+                <img src="{{ post.images }}" alt="Uploaded Image" class="img-fluid">
+                
             {% else %}
                 <p>No image found</p>  <!-- Debug statement -->
             {% endif %}
